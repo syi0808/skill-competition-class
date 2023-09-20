@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      .menu:hover {
+        background: red;
+      }
+
+      .active {
+        color: green;
+      }
+
+      .sns-icon {
+        width: 32px;
+      }
+
+      .visual-container {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .visual-wrapper {
+        width: 100%;
+        height: 400px;
+        position: absolute;
+        display: flex;
+        top: 0;
+        left: 0;
+        transition: all ease-in-out 0.2s;
+      }
+
+      .visual-item {
+        min-width: 100%;
+        height: 100%;
+      }
+
+      .visual-item img,
+      .place-image {
+        object-fit: contain;
+      }
+
+      .visual-next-button {
+        right: 0;
+        position: absolute;
+        display: none;
+      }
+
+      .visual-prev-button {
+        left: 0;
+        position: absolute;
+        display: none;
+      }
+
+      .visual-container:hover .visual-next-button,
+      .visual-container:hover .visual-prev-button {
+        display: flex;
+      }
+
+      .button-wrapper {
+        position: absolute;
+        bottom: 0;
+      }
+
+      .place-wrapper {
+        height: 500px;
+        position: relative;
+      }
+
+      .place-item {
+        height: 100%;
+        position: absolute;
+        opacity: 0;
+        transition: opacity linear 0.2s;
+      }
+
+      .place-active {
+        opacity: 1;
+      }
+
+      footer {
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="./메인.html">
+        <span>LOGO</span>
+      </a>
+      <a class="menu" href="./천안8경.html"><span>천안8경</span></a>
+      <a class="menu" href="#"><span>추천여행</span></a>
+      <a class="menu" href="#"><span>여행갤러리</span></a>
+      <a class="menu" href="#"><span>로그인</span></a>
+      <a class="menu" href="#"><span>회원가입</span></a>
+    </header>
+
+    <!-- 비쥬얼 이미지 영역 -->
+    <section>
+      <div class="visual-container">
+        <div class="visual-wrapper">
+          <div class="visual-item">
+            <img width="100%" height="100%" src="./assets/비쥬얼 이미지/아라리오조각광장.png" />
+          </div>
+          <div class="visual-item">
+            <img width="100%" height="100%" src="./assets/비쥬얼 이미지/유관순열사 사적지.png" />
+          </div>
+          <div class="visual-item">
+            <img width="100%" height="100%" src="./assets/비쥬얼 이미지/천안삼거리공원.png" />
+          </div>
+        </div>
+
+        <button onclick="visualPrev()" class="visual-prev-button">이전</button>
+        <button onclick="visualNext()" class="visual-next-button">다음</button>
+
+        <div class="button-wrapper">
+          <button onclick="setVisual(1)">1</button>
+          <button onclick="setVisual(2)">2</button>
+          <button onclick="setVisual(3)">3</button>
+        </div>
+      </div>
+    </section>
+    <!-- 천안8경 -->
+    <section>
+      <div class="place-wrapper">
+        <button>More</button>
+        <button>이전</button>
+        <button onclick="nextPlace()">다음</button>
+      </div>
+    </section>
+    <!-- 관광지 소개 -->
+    <section></section>
+    <!-- 여행 정보 -->
+    <section></section>
+    <!-- 여행 갤러리 -->
+    <section></section>
+
+    <footer>
+      이용안내, 개인정보처리방침, 저작권보안정책, 사이트오류신고 (31162) 충남 천안시 서북구 번영로 156. 천안시청
+      Copyrightⓒ Web Design and Development. All rights reserved.
+      <a href="#">이용안내</a>
+      <a href="#">개인정보처리방침</a>
+      <a href="#">저작권보안정책</a>
+      <a href="#">사이트오류신고</a>
+      <img class="sns-icon" src="./assets/SNS_01.png" />
+      <img class="sns-icon" src="./assets/SNS_02.png" />
+      <img class="sns-icon" src="./assets/SNS_03.png" />
+      <img class="sns-icon" src="./assets/SNS_04.png" />
+    </footer>
+
+    <script src="./visual.js"></script>
+    <script src="./place.js"></script>
+  </body>
+</html>
