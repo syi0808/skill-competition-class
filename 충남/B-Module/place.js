@@ -39,4 +39,19 @@ function nextPlace() {
   item.classList.add('place-active');
 }
 
+function prevPlace() {
+  const prevItem = document.getElementsByClassName('place-item')[currentPlace];
+
+  currentPlace = currentPlace - 1;
+
+  if (currentPlace < 0) {
+    currentPlace = PLACE_COUNT - 1;
+  }
+
+  const item = document.getElementsByClassName('place-item')[currentPlace];
+
+  prevItem.classList.remove('place-active');
+  item.classList.add('place-active');
+}
+
 createPlaces();

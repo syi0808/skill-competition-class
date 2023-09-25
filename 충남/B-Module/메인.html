@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      section {
+        margin: 100px 0;
+        border: 1px solid black;
+      }
+
       .header {
         position: fixed;
         top: 0;
@@ -91,6 +96,66 @@
       footer {
         margin-top: 100px;
       }
+
+      .tourlist-accordion-wrapper {
+        overflow: hidden;
+        margin: 50px 0;
+      }
+      .tourlist-accordion-content-wrapper {
+        height: 0;
+        transition: height 0.2s ease-in;
+      }
+      .tourlist-accordion-header {
+        border-bottom: 1px solid black;
+        cursor: pointer;
+      }
+
+      .gallary-wrapper {
+        display: flex;
+      }
+
+      .gallary-item-wrapper {
+        position: relative;
+        width: 150px;
+        height: 150px;
+      }
+
+      .gallary-item-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .gallary-item-wrapper:hover .gallary-item-content {
+        display: block;
+      }
+
+      .gallary-item-content {
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: white;
+      }
+
+      .modalless {
+        position: fixed;
+        top: 100px;
+        left: 100px;
+
+        background: white;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -102,7 +167,7 @@
       <a class="menu" href="#"><span>추천여행</span></a>
       <a class="menu" href="#"><span>여행갤러리</span></a>
       <a class="menu" href="#"><span>로그인</span></a>
-      <a class="menu" href="#"><span>회원가입</span></a>
+      <a class="menu" href="#" onclick="openRegisterModal()"><span>회원가입</span></a>
     </header>
 
     <!-- 비쥬얼 이미지 영역 -->
@@ -134,16 +199,76 @@
     <section>
       <div class="place-wrapper">
         <button>More</button>
-        <button>이전</button>
+        <button onclick="prevPlace()">이전</button>
         <button onclick="nextPlace()">다음</button>
       </div>
     </section>
     <!-- 관광지 소개 -->
-    <section></section>
+    <section>
+      <div class="tourlist-accordion-wrapper">
+        <div class="tourlist-accordion-header">관광지 1 <span class="tourlist-accordion-icon">열기</span></div>
+        <div class="tourlist-accordion-content-wrapper">
+          <div class="tourlist-accordion-content">관광지 1에대한 소개입니다.</div>
+        </div>
+      </div>
+      <div class="tourlist-accordion-wrapper">
+        <div class="tourlist-accordion-header">관광지 2 <span class="tourlist-accordion-icon">열기</span></div>
+        <div class="tourlist-accordion-content-wrapper">
+          <div class="tourlist-accordion-content">관광지 2에대한 소개입니다.</div>
+        </div>
+      </div>
+      <div class="tourlist-accordion-wrapper">
+        <div class="tourlist-accordion-header">관광지 3 <span class="tourlist-accordion-icon">열기</span></div>
+        <div class="tourlist-accordion-content-wrapper">
+          <div class="tourlist-accordion-content">관광지 3에대한 소개입니다.</div>
+        </div>
+      </div>
+      <div class="tourlist-accordion-wrapper">
+        <div class="tourlist-accordion-header">관광지 4 <span class="tourlist-accordion-icon">열기</span></div>
+        <div class="tourlist-accordion-content-wrapper">
+          <div class="tourlist-accordion-content">관광지 4에대한 소개입니다.</div>
+        </div>
+      </div>
+      <div class="tourlist-accordion-wrapper">
+        <div class="tourlist-accordion-header">관광지 5 <span class="tourlist-accordion-icon">열기</span></div>
+        <div class="tourlist-accordion-content-wrapper">
+          <div class="tourlist-accordion-content">관광지 5에대한 소개입니다.</div>
+        </div>
+      </div>
+    </section>
     <!-- 여행 정보 -->
-    <section></section>
+    <section>
+      <a class="menu" href="#">교통정보</a>
+      <a class="menu" href="#">여행사 안내</a>
+      <a class="menu" href="#">관광 안내소</a>
+      <a class="menu" href="#">관광통역안내전화</a>
+      <a class="menu" href="#">관광지도정보</a>
+    </section>
     <!-- 여행 갤러리 -->
-    <section></section>
+    <section>
+      <div class="gallary-wrapper">
+        <div class="gallary-item-wrapper">
+          <img src="./assets/여행갤러리/광덕산.JPG" />
+          <div class="gallary-item-content">광덕산</div>
+        </div>
+        <div class="gallary-item-wrapper">
+          <img src="./assets/여행갤러리/광덕산.JPG" />
+          <div class="gallary-item-content">광덕산</div>
+        </div>
+        <div class="gallary-item-wrapper">
+          <img src="./assets/여행갤러리/광덕산.JPG" />
+          <div class="gallary-item-content">광덕산</div>
+        </div>
+        <div class="gallary-item-wrapper">
+          <img src="./assets/여행갤러리/광덕산.JPG" />
+          <div class="gallary-item-content">광덕산</div>
+        </div>
+        <div class="gallary-item-wrapper">
+          <img src="./assets/여행갤러리/광덕산.JPG" />
+          <div class="gallary-item-content">광덕산</div>
+        </div>
+      </div>
+    </section>
 
     <footer>
       이용안내, 개인정보처리방침, 저작권보안정책, 사이트오류신고 (31162) 충남 천안시 서북구 번영로 156. 천안시청
@@ -158,7 +283,32 @@
       <img class="sns-icon" src="./assets/SNS_04.png" />
     </footer>
 
+    <div class="modalless">
+      모달리스 팝업창
+
+      <button onclick="closeModalless()">닫기</button>
+    </div>
+
+    <form class="modal" id="register-modal" onsubmit="register(event)">
+      <input id="register-id" maxlength="20" minlength="1" oninput="onChangeId(event)" name="id" placeholder="아이디" />
+      <span id="id-error"></span>
+      <button type="button" onclick="checkId()">중복확인</button>
+      <span id="idMessage"></span>
+      <input minlength="1" maxlength="8" name="password" type="password" placeholder="비밀번호" />
+      <span id="password-error"></span>
+      <input name="name" oninput="onChangeName(event)" minlength="1" maxlength="5" placeholder="성명" />
+      <span id="name-error"></span>
+      <input name="phone" oninput="onChangePhone(event)" placeholder="연락처" />
+      <span id="phone-error"></span>
+      <input name="address" maxlength="200" placeholder="주소" />
+      <button type="submit">회원가입</button>
+      <button type="button" onclick="closeRegisterModal()">닫기</button>
+    </form>
+
     <script src="./visual.js"></script>
     <script src="./place.js"></script>
+    <script src="./tourlist.js"></script>
+    <script src="./modalless.js"></script>
+    <script src="./register.js"></script>
   </body>
 </html>
