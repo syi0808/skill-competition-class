@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .recommend-tourlist-wrapper {
+        display: flex;
+        width: 940px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .recommend-tourlist {
+        width: 300px;
+        position: relative;
+      }
+
+      .recommend-tourlist:hover .recommend-play-button {
+        display: flex;
+      }
+
+      .recommend-play-button {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .recommend-tourlist img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .modal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        display: none;
+      }
+
+      .images img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .drop-zone {
+        width: 100%;
+        height: 200px;
+        background: rgba(123, 0, 123, 0.2);
+        padding: 20px;
+      }
+
+      .drop-zone img {
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="openModal()">나도추천하기</button>
+    <div class="recommend-tourlist-wrapper"></div>
+
+    <div class="modal">
+      <div class="images">
+        <img draggable="true" src="./assets/추천여행/각원사.jpg" />
+        <img draggable="true" src="./assets/추천여행/광덕사.JPG" />
+        <img draggable="true" src="./assets/추천여행/산사현대시100년관.jpg" />
+        <img draggable="true" src="./assets/추천여행/아라리오조각광장.jpg" />
+        <img draggable="true" src="./assets/추천여행/자연누리성.jpg" />
+        <img draggable="true" src="./assets/추천여행/중앙시장.jpg" />
+      </div>
+      <div class="drop-zone" ondragover="onDragover(event)" ondrop="onDrop(event)"></div>
+
+      <button onclick="addTourlist()">추가하기</button>
+      <button onclick="closeModal()">닫기</button>
+    </div>
+
+    <script src="./recommend.js"></script>
+    <script src="./dnd.js"></script>
+  </body>
+</html>

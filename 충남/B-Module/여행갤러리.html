@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item-wrapper {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(6, 150px);
+        grid-auto-rows: 150px;
+        grid-auto-flow: dense;
+      }
+
+      .item {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .item button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+
+      .active {
+        grid-column: auto / span 2;
+        grid-row: auto / span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item-wrapper">
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/노은정.jpg" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/독립기념관.jpg" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+      <div class="item">
+        <button>X</button>
+        <img src="./assets/여행갤러리/광덕산.JPG" />
+      </div>
+    </div>
+
+    <script src="./gallary.js"></script>
+  </body>
+</html>

@@ -1,4 +1,5 @@
 let prevId = '';
+let prevPassword = '';
 let prevName = '';
 let prevPhone = '';
 
@@ -24,6 +25,14 @@ function onChangeId(e) {
     e.target.value = prevId;
   } else {
     prevId = e.target.value;
+  }
+}
+
+function onChangePassword(e) {
+  if (e.target.value !== '' && e.target.value.length > 8) {
+    e.target.value = prevPassword;
+  } else {
+    prevPassword = e.target.value;
   }
 }
 
