@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        display: none;
+      }
+
+      section {
+        margin: 80px 0;
+        border: 1px solid black;
+      }
+
+      #list {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .list-item {
+        width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      .list-item img {
+        aspect-ratio: 1/1;
+        object-fit: cover;
+      }
+
+      .search-wrapper {
+        position: relative;
+      }
+
+      .autocomplete-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        max-height: 300px;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button onclick="showPurchaseModal()">구매하기</button>
+    </header>
+
+    <!-- 이달의 인기상품 -->
+    <section>no image</section>
+
+    <nav>
+      <a onclick="renderList('MP비누', 1)" href="#">mp 비누</a>
+      <a onclick="renderList('CP 비누', 1)" href="#">cp 비누</a>
+      <a onclick="renderList('HP 비누', 1)" href="#">hp 비누</a>
+      <a onclick="renderList('리배칭 비누', 1)" href="#">리배칭 비누</a>
+      <a onclick="renderList('굽는 비누', 1)" href="#">굽는 비누</a>
+    </nav>
+
+    <form class="search-wrapper" onsubmit="submitSearch(event)">
+      <input name="search" oninput="onInputSearch(event)" placeholder="검색어를 입력하세요" id="search" />
+      <button>검색하기</button>
+      <div class="autocomplete-wrapper"></div>
+    </form>
+
+    <!-- 리스트 -->
+    <section id="list"></section>
+
+    <form id="purchaseModal" class="modal" onsubmit="login(event)">
+      <input name="name" placeholder="이름" />
+      <input name="phone" placeholder="전화번호" />
+      <input name="visitDate" type="date" placeholder="방문일자" />
+      <input name="password" placeholder="비밀번호" />
+      <input name="checkPassword" placeholder="비밀번호 확인" />
+      <button>구매하기</button>
+    </form>
+
+    <div id="detailModal" class="modal"></div>
+
+    <script src="./purchase.js"></script>
+    <script src="./list.js"></script>
+    <script src="./detail.js"></script>
+    <script src="./search.js"></script>
+  </body>
+</html>
