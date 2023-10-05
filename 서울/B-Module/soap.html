@@ -62,9 +62,16 @@
     <header>
       <button onclick="showPurchaseModal()">구매하기</button>
     </header>
+    <div id="cart-information">
+      카드:
+      <span id="cart-total-count">0개</span>
+      <span id="cart-total-price">0원</span>
+      <button onclick="openCartDetailModal()">상세보기</button>
+      <button onclick="submitPurchase()">구매하기</button>
+    </div>
 
     <!-- 이달의 인기상품 -->
-    <section>no image</section>
+    <section id="popular"></section>
 
     <nav>
       <a onclick="renderList('MP비누', 1)" href="#">mp 비누</a>
@@ -94,9 +101,22 @@
 
     <div id="detailModal" class="modal"></div>
 
-    <script src="./purchase.js"></script>
+    <div id="cartDetailModal" class="modal"></div>
+
+    <form id="purchaseUserCheckModal" class="modal" onsubmit="purchaseCheckUser(event)">
+      <input name="phone" placeholder="전화번호" />
+      <input name="password" placeholder="비밀번호" />
+      <button>확인</button>
+    </form>
+
+    <div id="purchaseDetailModal" class="modal"></div>
+
+    <script src="./auth.js"></script>
     <script src="./list.js"></script>
     <script src="./detail.js"></script>
     <script src="./search.js"></script>
+    <script src="./cart.js"></script>
+    <script src="./purchase.js"></script>
+    <script src="./popular.js"></script>
   </body>
 </html>

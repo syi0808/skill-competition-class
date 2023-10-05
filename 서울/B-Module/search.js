@@ -13,6 +13,15 @@ async function getSoapsBySearch(search) {
 
 async function onInputSearch(e) {
   const searchValue = e.target.value;
+
+  if (searchValue === '') {
+    await sleep(500);
+
+    document.getElementsByClassName('autocomplete-wrapper')[0].innerHTML = '';
+
+    return;
+  }
+
   const { data } = await getSoapsBySearch(searchValue);
 
   document.getElementsByClassName('autocomplete-wrapper')[0].innerHTML = data
@@ -28,9 +37,31 @@ function autocomplete(soapName) {
   document.getElementById('search').value = soapName;
 }
 
-function submitSearch(e) {
+async function submitSearch(e) {
   e.preventDefault();
-}
 
-// submitSearch 실행시에 renderList 함수 따로 짜기
-// getSoapsBySearchWithPage도 필요할듯
+  const searchValue = e.srcElement.search.value;
+
+  if (searchValue === '') {
+    alert('검색어를 입력해주세요');
+
+    return;
+  }
+
+  const { data } = await getSoapsBySearch(searchValue);
+
+  document.getElementById('list').innerHTML = data
+    .map(
+      (soap) => `
+    <div class="list-item">
+      <img src="./assets/img/${soap.Image}" />
+      <span>${soap.soapName}</span>
+      <span>${soap.release}</span>
+      <span>${soap.price}</span>
+      <button onclick="showDetailModalByIndex(${soap.index})">상세보기</button>
+      <button onclick="addCartByIndex(${soap.index})">장바구니</button>
+    </div>
+  `
+    )
+    .join('');
+}

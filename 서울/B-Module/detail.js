@@ -91,5 +91,3 @@ async function showDetailModalByIndex(index) {
 
   openDetailModal();
 }
-
-async function addCartByIndex(index) {}
